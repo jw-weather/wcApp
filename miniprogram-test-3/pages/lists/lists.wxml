@@ -1,0 +1,11 @@
+<!--pages/lists/lists.wxml-->
+<text>天气列表</text>
+<view class="">
+<!--下面这些我只是很粗糙得写一下，需要大改，记住按钮的写法就可以了-->
+  <view class="">
+    <view wx:if="{{item.useInfo}}">
+      <view class="listItem" bindtap="par">{{item.city}}+{{item.time}}+{{item.temp}} </view>
+    </view>
+    <button class="addItem" bindtap="go"> + </button>
+  </view>
+</view>
