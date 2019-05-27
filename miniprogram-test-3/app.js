@@ -1,5 +1,52 @@
 //app.js
 App({
+
+  /**
+   * 创建一个城市对象
+   */
+  createCity: function(data) {
+    this.cityName = null;
+  },
+
+  /**
+   * 全局数据
+   */
+  globalData: {
+
+    userInfo: null,
+
+    dataList: [],
+
+    // HTTP请求
+    // 根据城市名称请求
+    requestWeatherByCityId: function (cityId) {
+      wx.request({
+        url: 'https://www.tianqiapi.com/api/?version=v1&cityid=' + cityId,
+        data: {},
+        method: 'GET',
+        header: {},
+        success: function (res) {
+
+        }
+      });
+    },
+
+    // 根据城市id请求
+    requestWeatherByCityName: function (cityName) {
+      wx.request({
+        url: 'https://www.tianqiapi.com/api/?version=v1&city=' + cityName,
+        data: {},
+        method: 'GET',
+        header: {},
+        success: function (res) {
+          this.setData({
+            weatherData: res.data
+          });
+        }
+      });
+    },
+  },
+
   onLaunch: function () {
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
@@ -32,8 +79,5 @@ App({
         }
       }
     })
-  },
-  globalData: {
-    userInfo: null
   }
 })

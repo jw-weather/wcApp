@@ -5,27 +5,27 @@ Page({
    * 页面的初始数据
    */
   data: {
-    item:{
+    item: {
       city:"南京",
       temp:"23°C",
       time:(new Date()).toString(),
-      useInfo:true
-
     }
   },
+
   //这个函数是跳去搜索界面的
-  go:function(){
+  go:function () {
     wx.navigateTo({
       url: '../search/search'
     })
-
   },
+
   //这个函数是挑去详情界面的
-  par:function(){
+  par:function () {
     wx.navigateTo({
       url: '../particular/particular',
     })
   },
+
   /**
    * 生命周期函数--监听页面加载
    */
