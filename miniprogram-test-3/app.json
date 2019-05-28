@@ -2,7 +2,7 @@
   "pages": [
     "pages/index/index",
     "pages/logs/logs",
-    "pages/lists/lists",
+    "pages/list/list",
     "pages/search/search",
     "pages/particular/particular"
   ],

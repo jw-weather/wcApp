@@ -1,6 +1,12 @@
 // pages/particular/particular.js
 Page({
-  //这里我没有写任何东西
+  
+  // 跳去列表界面
+  list: function() {
+    wx.redirectTo({
+      url: '../list/list',
+    })
+  },
 
   /**
    * 页面的初始数据

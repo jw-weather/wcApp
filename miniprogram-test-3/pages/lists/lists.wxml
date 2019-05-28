@@ -1,8 +1,0 @@
-<!--pages/lists/lists.wxml-->
-<text>天气列表</text>
-<view class="listItem" wx:for='{{array}}' wx:key=''>
-  <view bindtap="par" index='{{index}}'>
-    {{item.city}}+{{item.time}}+{{item.temp}}
-  </view>
-</view>
-<button class="addItem" bindtap="go"> + </button>

@@ -1,27 +1,35 @@
-// pages/lists/lists.js
+// pages/lists/list.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    item: {
-      city:"南京",
-      temp:"23°C",
-      time:(new Date()).toString(),
-    }
+    // 天气数据数组,存储城市对象
+    // 改变本地数据会导致全局数据改变
+    dataList: []
   },
 
-  //这个函数是跳去搜索界面的
-  go:function () {
-    wx.navigateTo({
+  // 删除城市
+  deleteCity: function(e) {
+    var nowidx = e.currentTarget.dataset.index; // 获取data-index属性的值
+    var oldDataList = this.data.dataList;
+    oldDataList.splice(nowidx, 1);  // 删除
+    this.setData({
+      dataList: oldDataList
+    })
+  },
+
+  // 跳去搜索界面
+  search: function () {
+    wx.redirectTo({
       url: '../search/search'
     })
   },
 
-  //这个函数是挑去详情界面的
-  par:function () {
-    wx.navigateTo({
+  //跳去详情界面
+  weatherDetail: function () {
+    wx.redirectTo({
       url: '../particular/particular',
     })
   },
@@ -30,7 +38,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    getApp().globalData.requestWeatherByCityName("北京");
 
+    // 拷贝全局数据的引用到本地
+    // 注意是引用传递，而不是值传递
+    this.setData({
+      dataList: getApp().globalData.dataList
+    })
   },
 
   /**
@@ -44,7 +58,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    
   },
 
   /**

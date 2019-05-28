@@ -1,6 +1,13 @@
 // pages/searchs/searchs.js
 Page({
 
+  // 跳去列表界面
+  list: function () {
+    wx.redirectTo({
+      url: '../list/list',
+    })
+  },
+
   /**
    * 页面的初始数据
    */

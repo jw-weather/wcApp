@@ -2,20 +2,32 @@
 App({
 
   /**
-   * 创建一个城市对象
-   */
-  createCity: function(data) {
-    this.cityName = null;
-  },
-
-  /**
    * 全局数据
    */
   globalData: {
 
     userInfo: null,
 
+    // 天气数据数组,存储城市对象
     dataList: [],
+
+    // 创建城市对象
+    // 将HTTP请求返回的数据转换为对象
+    createCity: function (res) {
+      var obj = new Object();
+
+      obj.cityid = res.cityid;
+      obj.city = res.city;
+      obj.update_time = res.update_time;
+      
+      // 今天的详细信息
+      obj.today = {};
+
+      // 1-6天后的简略信息
+      obj.days = [];
+
+      return obj;
+    },
 
     // HTTP请求
     // 根据城市名称请求
@@ -26,7 +38,9 @@ App({
         method: 'GET',
         header: {},
         success: function (res) {
-
+          this.globalData.dataList.push(
+            this.globalData.createCity(res)
+          );
         }
       });
     },
@@ -39,9 +53,9 @@ App({
         method: 'GET',
         header: {},
         success: function (res) {
-          this.setData({
-            weatherData: res.data
-          });
+          this.globalData.dataList.push(
+            this.globalData.createCity(res)
+          );
         }
       });
     },

@@ -1,2 +1,3 @@
 <!--pages/particular/particular.wxml-->
 <text>pages/particular/particular.wxml</text>
+<button bindtap="list"> {{'<'}} </button>
