@@ -1,7 +1,0 @@
-1. 下载微信开发者工具
-2. 总共有三个界面：
-    pages/list：城市列表界面
-    pages/details:某个城市的详细详情界面
-    pages/search：是搜索城市的界面
-3. 请求天气：
-    app.js中有全局变量
