@@ -1,0 +1,10 @@
+<!--pages/searchs/searchs.wxml-->
+<view class='page_row'>
+  <view class='search'>
+    <view class='df search_arr'> 
+      <icon class='searchcion' size='20' type='search'></icon> 
+      <input class='' placeholder='请输入城市名' value='{{searchValue}}'/>
+    </view>
+  </view>
+  <view bindtap='requestWeather' class='sousuo'>搜索</view>
+</view>

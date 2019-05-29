@@ -1,0 +1,22 @@
+<!--pages/lists/list.wxml-->
+<text>天气列表</text>
+
+<!--城市列表-->
+<view wx:for='{{dataList}}' wx:key=''>
+
+  <!--某城市-->
+  <view class='box' data-index='{{index}}'>
+    
+    <!--简略天气-->
+    <view bindtap='details' data-index='{{index}}'>
+      <text>{{item.city}} {{item.today.tem}} {{item.today.win}}</text>
+    </view>
+
+    <!--删除按钮-->
+    <button class='del' bindtap='deleteCity' data-index='{{index}}'> - </button>
+
+  </view>
+</view>
+
+<!--增加按钮-->
+<button bindtap="search"> + </button>
