@@ -1,12 +1,7 @@
-1，下载微信开发者工具
-2，我们组采用开发模式的是把人员分为三组，每一组写一个界面，大致的交互demo已经写了（很简陋）
-3，总共有三个界面：
-   pages/lists：是我们收藏过的城市列表界面
-   pages/particular:是某个城市的详细详情界面
-   pages/search：是搜索城市的界面
-   app.js里可能会增加一些功能
-   其他pages都不需要修改
-4，天气查询的url：https://www.tianqiapi.com
-5，这个软件不写后端，用微信的云开发，它能够提供数据库
-    云开发文档：https://developers.weixin.qq.com/miniprogram/dev/wxcloud/guide/database/getting-started.html
-6，js文件里会自动生成很多函数（很多都不是我写的）
+1. 下载微信开发者工具
+2. 总共有三个界面：
+    pages/list：城市列表界面
+    pages/details:某个城市的详细详情界面
+    pages/search：是搜索城市的界面
+3. 请求天气：
+    app.js中有全局变量
