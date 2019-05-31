@@ -6,6 +6,8 @@ App({
    */
   globalData: {
 
+    openId: null,
+
     userInfo: null,
 
     // 天气数据数组,存储城市对象
