@@ -133,4 +133,36 @@ Page({
     console.log(userCity);
   },
 
+
+  
+  touchstart: function (e) {
+    this.setData({
+      index: e.currentTarget.dataset.index,
+      Mstart: e.changedTouches[0].pageX
+    });
+  },
+  touchmove: function (e) {
+    //列表项数组
+    let dataList = this.data.dataList;
+    //手指在屏幕上移动的距离
+    //移动距离 = 触摸的位置 - 移动后的触摸位置
+    let move = this.data.Mstart - e.changedTouches[0].pageX;
+    // 这里就使用到我们之前记录的索引index
+    //比如你滑动第一个列表项index就是0，第二个列表项就是1，···
+    //通过index我们就可以很准确的获得当前触发的元素，当然我们需要在事前为数组list的每一项元素添加x属性
+    dataList[this.data.index].x = move > 0 ? -move : 0;
+    this.setData({
+      dataList: dataList
+    });
+    
+  },
+  ouchend: function (e) {
+    let dataList = this.data.dataList;
+    let move = this.data.Mstart - e.changedTouches[0].pageX;
+    dataList[this.data.index].x = move > 100 ? -180 : 0;
+    this.setData({
+      dataList: dataList
+    });
+  },
+
 })
