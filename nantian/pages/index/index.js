@@ -18,6 +18,10 @@ Page({
   },
 
   go:function(){
+    wx.cloud.init({
+      env: 'user-city-tvc5l'
+    });
+
     wx.redirectTo({
       url:'../list/list'
     })
