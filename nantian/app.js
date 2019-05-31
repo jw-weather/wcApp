@@ -16,6 +16,7 @@ App({
     // 创建城市对象
     // 将HTTP请求返回的数据转换为对象
     createCity: function (res) {
+      console.log(res);
       var obj = new Object();
 
       obj.cityid = res.cityid;
@@ -33,6 +34,7 @@ App({
         win: res.data[0].win[0] // 风
       };
 
+      /*
       // 今天每3小时的简略信息
       obj.hours = [
         { tem: res.data[0].hours[0].tem, wea: res.data[0].hours[0].wea },
@@ -44,6 +46,7 @@ App({
         { tem: res.data[0].hours[6].tem, wea: res.data[0].hours[6].wea },
         { tem: res.data[0].hours[7].tem, wea: res.data[0].hours[7].wea },
       ]
+      */
 
       // 1-6天后的简略信息
       obj.days = [
@@ -96,16 +99,18 @@ App({
 
   onLaunch: function () {
     // 展示本地存储能力
-    var logs = wx.getStorageSync('logs') || []
-    logs.unshift(Date.now())
-    wx.setStorageSync('logs', logs)
+    var logs = wx.getStorageSync('logs') || [];
+    logs.unshift(Date.now());
+    wx.setStorageSync('logs', logs);
 
     // 登录
+    var code;
     wx.login({
-      success: res => {
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
+      success: function (res) {
+        code = res.code; //返回code
       }
-    })
+    });
+
     // 获取用户信息
     wx.getSetting({
       success: res => {
@@ -125,6 +130,6 @@ App({
           })
         }
       }
-    })
+    });
   }
 })
