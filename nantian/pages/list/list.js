@@ -129,8 +129,17 @@ Page({
   onShareAppMessage: function () {
     const db = wx.cloud.database();
     const userCity = db.collection('user_city');
-    console.log("exit!!");
-    console.log(userCity);
+    userCity.add({
+      data: {
+        cityOne: this.data.dataList[0].city
+      },
+
+      success: function (res) {
+        // res 是一个对象，其中有 _id 字段标记刚创建的记录的 id
+        console.log(res)
+      }
+    });
+
   },
 
 })
