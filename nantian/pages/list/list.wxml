@@ -5,18 +5,19 @@
 <view wx:for='{{dataList}}' wx:key='' wx:time='{{time}}'>
 
   <!--某城市-->
-  <view class='box' data-index='{{index}}' >
-    <view style="background:url('{{wea_img[0]}}')">
+  <view class='box' data-index='{{index}}'>
+  
       <!--简略天气-->
-      <view bindtap='details' data-index='{{index}}'>
+      <view  bindtap='details' data-index='{{index}}'>
         <text>{{item.city}} {{item.today.tem}} {{item.today.wea}} {{item.today.wea_img}} {{time}}</text>
       </view>
 
       <!--删除按钮-->
       <button class='del' bindtap='deleteCity' data-index='{{index}}'> - </button>
-    </view>
+    
   </view>
 </view>
+
 
 <!--增加按钮-->
 <button bindtap="search"> + </button>
