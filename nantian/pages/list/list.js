@@ -1,13 +1,24 @@
 // pages/lists/list.js
-Page({
+let formatTime = date => {
+  let hour = date.getHours()
+  let minute = date.getMinutes()
+  return [hour, minute].map(formatNumber).join(':')
+}
+let formatNumber = n => {
+  n = n.toString()
+  return n[1] ? n : '0' + n
+}
 
+Page({
+  
   /**
    * 页面的初始数据
    */
   data: {
     // 天气数据数组,存储城市对象
     // 改变本地数据会导致全局数据改变
-    dataList: []
+    dataList: [],
+    
   },
 
   /**
@@ -56,7 +67,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    // 调用函数时，传入new Date()参数，返回值是日期和时间
+    var time = formatTime(new Date());
+    // 再通过setData更改Page()里面的data，动态更新页面的数据
+    this.setData({
+      time: time
+    });
   },
 
   /**
@@ -106,5 +122,6 @@ Page({
    */
   onShareAppMessage: function () {
 
-  }
+  },
+
 })

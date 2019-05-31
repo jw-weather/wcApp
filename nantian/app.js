@@ -11,6 +11,10 @@ App({
     // 天气数据数组,存储城市对象
     dataList: [],
 
+    //天气背景
+    imgs:[
+      'https://image.baidu.com/search/detail?ct=503316480&z=undefined&tn=baiduimagedetail&ipn=d&word=%E5%A4%A9%E6%B0%94%E9%A2%84%E6%8A%A5%E8%83%8C%E6%99%AF%E5%9B%BE%E7%89%87&step_word=&ie=utf-8&in=&cl=2&lm=-1&st=undefined&hd=undefined&latest=undefined&copyright=undefined&cs=1805967887,2520026758&os=904266883,2263384884&simid=0,0&pn=12&rn=1&di=75350&ln=945&fr=&fmq=1559269976307_R&fm=&ic=undefined&s=undefined&se=&sme=&tab=0&width=undefined&height=undefined&face=undefined&is=0,0&istype=0&ist=&jit=&bdtype=0&spn=0&pi=0&gsm=0&hs=2&objurl=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fimages%2F20170820%2F5518e1e364fb44f7baea31ea98d5ac6e.gif&rpstart=0&rpnum=0&adpicid=0&force=undefined'//多云
+    ],
     // 创建城市对象
     // 将HTTP请求返回的数据转换为对象
     createCity: function (res) {
