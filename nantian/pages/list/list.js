@@ -5,6 +5,9 @@ Page({
    * 页面的初始数据
    */
   data: {
+    // 数据库用户-城市表
+    userCity: null,
+
     // 天气数据数组,存储城市对象
     // 改变本地数据会导致全局数据改变
     dataList: []
@@ -56,7 +59,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    const db = wx.cloud.database();
+    this.setData({
+      userCity: db.collection('user_city')
+    });
   },
 
   /**
