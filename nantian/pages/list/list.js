@@ -103,7 +103,10 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+    const db = wx.cloud.database();
+    const userCity = db.collection('user_city');
+    console.log("exit!!");
+    console.log(userCity);
   },
 
   /**
@@ -124,7 +127,10 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    const db = wx.cloud.database();
+    const userCity = db.collection('user_city');
+    console.log("exit!!");
+    console.log(userCity);
   },
 
 })
