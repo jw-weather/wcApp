@@ -66,6 +66,66 @@ Page({
     })
   },
 
+  loadCloudData: function() {
+    const db = wx.cloud.database();
+    db.collection('user_city').where({
+      _openid: getApp().globalData.openId
+    }).get({
+      success: function (res) {
+        console.log("haha");
+        // res.data 是包含以上定义的两条记录的数组
+        var cityList = res.data[0].cities;
+
+        for (let city of cityList) {
+          console.log(city);
+          getApp().globalData.requestWeatherByCityName(city);
+        }
+      }
+    });
+  },
+
+  updateCloudData: function() {
+    // 增加用户收藏的城市
+    const db = wx.cloud.database();
+    const userCity = db.collection('user_city');
+    var cityList = [];
+    for (let i = 0; i < this.data.dataList.length; i++) {
+      cityList.push(this.data.dataList[i].city);
+    }
+
+    // 插入/更新数据
+    db.collection('user_city').where({
+      _openid: getApp().globalData.openId
+    }).get({
+      success: function (res) {
+        console.log(res);
+        if (res.data.length == 0) {
+          console.log("不存在数据");
+          userCity.add({
+            data: {
+              cities: cityList
+            },
+            success: function (res) {
+              // res 是一个对象，其中有 _id 字段标记刚创建的记录的 id
+              console.log(res)
+            }
+          });
+        } else {
+          console.log("已存在数据");
+          userCity.doc(res.data[0]._id).update({
+            data: {
+              cities: cityList
+            },
+            success: function (res) {
+              // res 是一个对象，其中有 _id 字段标记刚创建的记录的 id
+              console.log(res);
+            }
+          });
+        }
+      }
+    });
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -76,6 +136,14 @@ Page({
     this.setData({
       time: time
     });
+
+    this.loadCloudData();
+
+    var _this = this;
+    setInterval(function () {
+      _this.sync();
+      console.log("轮播请求1秒触发一次");
+    }, 3000);    //代表1秒钟发送一次请求
   },
 
   /**
@@ -103,10 +171,7 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-    const db = wx.cloud.database();
-    const userCity = db.collection('user_city');
-    console.log("exit!!");
-    console.log(userCity);
+
   },
 
   /**
@@ -127,19 +192,7 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-    const db = wx.cloud.database();
-    const userCity = db.collection('user_city');
-    userCity.add({
-      data: {
-        cityOne: this.data.dataList[0].city
-      },
-
-      success: function (res) {
-        // res 是一个对象，其中有 _id 字段标记刚创建的记录的 id
-        console.log(res)
-      }
-    });
-
+    this.updateCloudData();
   },
 
 })
