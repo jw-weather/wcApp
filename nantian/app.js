@@ -34,6 +34,7 @@ App({
         win: res.data[0].win[0] // 风
       };
 
+      /*
       // 今天每3小时的简略信息
       obj.hours = [
         { tem: res.data[0].hours[0].tem, wea: res.data[0].hours[0].wea },
@@ -45,6 +46,7 @@ App({
         { tem: res.data[0].hours[6].tem, wea: res.data[0].hours[6].wea },
         { tem: res.data[0].hours[7].tem, wea: res.data[0].hours[7].wea },
       ]
+      */
 
       // 1-6天后的简略信息
       obj.days = [
