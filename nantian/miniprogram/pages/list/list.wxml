@@ -18,7 +18,7 @@
         </view>
 
       <!--删除按钮-->
-       <view class="delete"  bindtap='deleteCity' data-index='{{index}}'><text>删除</text></view>
+       <view class="delete"  bindtap='deleteCity' data-index='{{index}}'><text></text></view>
       </view>
     
   </view>
