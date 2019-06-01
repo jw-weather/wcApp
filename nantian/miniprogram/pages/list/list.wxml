@@ -8,18 +8,13 @@
   <view class='box' data-index='{{index}}'>
   
       <!--简略天气-->
-      <view class="wrap" data-index="{{index}}" 
-      style="transform:translateX({{item.x/2}}px);"
-  bindtouchstart='touchstart' 
-  bindtouchmove='touchmove' 
-  bindtouchend='touchend'>
-        <view  bindtap='details' data-index='{{index}}'>
-          <text>{{item.city}} {{item.today.tem}} {{item.today.wea}} {{item.today.wea_img}} {{time}}</text>
-        </view>
-
-      <!--删除按钮-->
-       <view class="delete"  bindtap='deleteCity' data-index='{{index}}'><text></text></view>
+    <view class="wrap">
+      <view  bindtap='details' data-index='{{index}}'>
+        <text>{{item.city}} {{item.today.tem}} {{item.today.wea}} {{item.today.wea_img}} {{time}}</text>
       </view>
+    </view>
+      <!--删除按钮-->
+      <button class='del' bindtap='deleteCity' data-index='{{index}}'> - </button>
     
   </view>
 </view>
