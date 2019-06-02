@@ -29,6 +29,7 @@ App({
       obj.cityid = res.cityid;
       obj.city = res.city;
       obj.update_time = res.update_time;
+      obj.get_time = new Date();
       
       // 今天的详细信息
       obj.today = {
@@ -70,23 +71,7 @@ App({
     },
 
     // HTTP请求
-    // 根据城市id请求
-    requestWeatherByCityId: function (cityId) {
-      var _this = this;
-      wx.request({
-        url: 'https://www.tianqiapi.com/api/?version=v1&cityid=' + cityId,
-        data: {},
-        method: 'GET',
-        header: {},
-        success: function (res) {
-          _this.dataList.push(
-            _this.createCity(res.data)
-          );
-        }
-      });
-    },
-
-    // 根据城市名称请求
+    // 根据城市名称请求天气，加到dataList末尾
     requestWeatherByCityName: function (cityName) {
       var _this = this;
       wx.request({
@@ -98,9 +83,29 @@ App({
           _this.dataList.push(
             _this.createCity(res.data)
           );
+          console.log("添加" + cityName + "天气成功");
         }
       });
     },
+
+    // 根据城市名称更新dataList中某城市的天气
+    updateWeatherByCityName: function (cityName) {
+      var _this = this;
+      wx.request({
+        url: 'https://www.tianqiapi.com/api/?version=v1&city=' + cityName,
+        data: {},
+        method: 'GET',
+        header: {},
+        success: function (res) {
+          for(let i = 0 ; i < _this.dataList.length; i++) {
+            if (_this.dataList[i].city == cityName) {
+              _this.dataList[i] = _this.createCity(res.data);
+              console.log("更新" + cityName + "天气成功");
+            }
+          }
+        }
+      });
+    }
   },
 
   onLaunch: function () {

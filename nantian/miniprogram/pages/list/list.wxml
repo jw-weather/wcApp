@@ -27,7 +27,7 @@ module.exports.getImage = getImage;
 
 <view class="container">
  <view class="touch-item {{item.isTouchMove ? 'touch-move-active' : ''}}" data-index="{{index}}"  bindtouchstart="touchstart" bindtouchmove="touchmove" wx:for="{{dataList}}" wx:key="" wx:num="{{m1.getImage('{{item.today.wea}}')}}" style='background:url({{imageList[0]}})  no-repeat center center;background-size:cover;'>
-  <view class="content" bindtap='details'>
+  <view class="content" bindtap='details' data-index="{{index}}">
     <view class='box-left'>
         <text class='space'>\n</text>
         <text class='time'>{{m1.getImage("item.today.wea")}}</text>
