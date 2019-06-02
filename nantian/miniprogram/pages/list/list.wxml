@@ -1,10 +1,36 @@
 <!--pages/lists/list.wxml-->
+<wxs module="m1">
+var getImage = function (str) {
+  var imag = 1;
+  
+  if (str.indexOf("转") != -1) {
+    imag = getImage(str.split("转")[0]);
+    console.log(imag)
+  }
+  else {
+    if (str.indexOf("雨") != -1) {
+      imag = 0
+    }
+    else if (str.indexOf("云") != -1) {
+      imag = 1
+    }
+    else if (str.indexOf("晴") != -1) {
+      imag = 2
+    }
+  }
+  return imag;
+}
+
+module.exports.getImage = getImage;
+</wxs>
+
+
 <view class="container">
- <view class="touch-item {{item.isTouchMove ? 'touch-move-active' : ''}}" data-index="{{index}}" bindtouchstart="touchstart" bindtouchmove="touchmove" wx:for="{{dataList}}" wx:key=""  style='background:url({{imagList[1]}})  no-repeat center center;background-size:cover;'>
+ <view class="touch-item {{item.isTouchMove ? 'touch-move-active' : ''}}" data-index="{{index}}"  bindtouchstart="touchstart" bindtouchmove="touchmove" wx:for="{{dataList}}" wx:key="" wx:num="{{m1.getImage('{{item.today.wea}}')}}" style='background:url({{imageList[0]}})  no-repeat center center;background-size:cover;'>
   <view class="content" bindtap='details'>
     <view class='box-left'>
         <text class='space'>\n</text>
-        <text class='time'>{{time}}</text>
+        <text class='time'>{{m1.getImage("item.today.wea")}}</text>
         <text class='space'>\n</text>
         <text class='city'>\n{{item.city}} </text>
      </view>
@@ -25,3 +51,4 @@
   <view class='btn-space'></view>
   <button bindtap="search" class='btn' plain='true'> + </button>
 </view>
+
