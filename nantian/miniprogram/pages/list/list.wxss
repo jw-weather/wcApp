@@ -21,18 +21,15 @@
 }
 
 .box{
+  
     margin-top: 10px;
     clear: both;
     overflow: hidden;
     padding: 0 10px;
-    background: url('https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1559283698569&di=14305afbae739a22a64ef0ab274bd7c4&imgtype=0&src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fimages%2F20170820%2F5518e1e364fb44f7baea31ea98d5ac6e.gif')no-repeat;
+    background: url('http://img2.imgtn.bdimg.com/it/u=1579515538,324936754&fm=26&gp=0.jpg')no-repeat;width:100%;height:100%;
 }
 
-.del{
-    width: 40px;
-    float: right;
-    margin-left: 10px;
-}
+
 
 .backpicture{
   width:100%;
@@ -45,9 +42,47 @@
   position: absolute;
 }
 
-.item{ position:relative; }
-.wrap{ 
-  position:absolute;z-index:2; top:0;left:0;
-  background:#fff;width:100%;height:100%;
+.container{
+  width:100%;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding-bottom:10rpx;
 }
-.delete{ position:absolute;z-index:1; top:0;right:0;width:120rpx;height:100%;}
+.touch-item {
+ font-size: 14px;
+ display: flex;
+ /* //均匀排布每个元素 */
+ justify-content: space-between;
+ border-bottom:1px solid #ccc;
+ width: 100%;
+ overflow: hidden;
+}
+.content {
+ width: 100%;
+ padding: 10px;
+ line-height: 22px;
+ margin-right:0;
+ -webkit-transition: all 0.4s;
+ transition: all 0.4s;
+ -webkit-transform: translateX(90px);
+ transform: translateX(90px);
+ margin-left: -90px;
+}
+.del {
+ background-color: #c00;
+ width: 90px;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+ color: #fff;
+ -webkit-transform: translateX(90px);
+ transform: translateX(90px);
+ -webkit-transition: all 0.4s;
+ transition: all 0.4s;
+}
+.touch-move-active .content,
+.touch-move-active .del {
+ -webkit-transform: translateX(0);
+ transform: translateX(0);
+}

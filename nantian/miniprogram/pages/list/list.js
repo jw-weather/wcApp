@@ -10,11 +10,15 @@ let formatNumber = n => {
 }
 
 Page({
+
   
   /**
    * 页面的初始数据
    */
   data: {
+    startX: 0, //开始坐标
+    startY: 0,
+    
     // 数据库用户-城市表
     userCity: null,
 
@@ -195,33 +199,63 @@ Page({
     this.updateCloudData();
   },
 
+  
   touchstart: function (e) {
+    //开始触摸时 重置所有删除
+    this.data.dataList.forEach(function (v, i) {
+      if (v.isTouchMove)//只操作为true的
+        v.isTouchMove = false;
+    })
     this.setData({
-      index: e.currentTarget.dataset.index,
-      Mstart: e.changedTouches[0].pageX
-    });
+      startX: e.changedTouches[0].clientX,
+      startY: e.changedTouches[0].clientY,
+      dataList: this.data.dataList
+    })
   },
+  //滑动事件处理
   touchmove: function (e) {
-    //列表项数组
-    let dataList = this.data.dataList;
-    //手指在屏幕上移动的距离
-    //移动距离 = 触摸的位置 - 移动后的触摸位置
-    let move = this.data.Mstart - e.changedTouches[0].pageX;
-    // 这里就使用到我们之前记录的索引index
-    //比如你滑动第一个列表项index就是0，第二个列表项就是1，···
-    //通过index我们就可以很准确的获得当前触发的元素，当然我们需要在事前为数组list的每一项元素添加x属性
-    dataList[this.data.index].x = move > 0 ? -move : 0;
-    this.setData({
-      dataList: dataList
-    });
+    var that = this,
+      index = e.currentTarget.dataset.index,//当前索引
+      startX = that.data.startX,//开始X坐标
+      startY = that.data.startY,//开始Y坐标
+      touchMoveX = e.changedTouches[0].clientX,//滑动变化坐标
+      touchMoveY = e.changedTouches[0].clientY,//滑动变化坐标
+      //获取滑动角度
+      angle = that.angle({ X: startX, Y: startY }, { X: touchMoveX, Y: touchMoveY });
+    that.data.dataList.forEach(function (v, i) {
+      v.isTouchMove = false
+      //滑动超过30度角 return
+      if (Math.abs(angle) > 30) return;
+      if (i == index) {
+        if (touchMoveX > startX) //右滑
+          v.isTouchMove = false
+        else //左滑
+          v.isTouchMove = true
+      }
+    })
+    //更新数据
+    that.setData({
+      dataList: that.data.dataList
+    })
   },
-  touchend: function (e) {
-    let dataList = this.data.dataList;
-    let move = this.data.Mstart - e.changedTouches[0].pageX;
-    dataList[this.data.index].x = move > 100 ? -180 : 0;
-    this.setData({
-      dataList: dataList
-    });
+  /**
+   * 计算滑动角度
+   * @param {Object} start 起点坐标
+   * @param {Object} end 终点坐标
+   */
+  angle: function (start, end) {
+    var _X = end.X - start.X,
+      _Y = end.Y - start.Y
+    //返回角度 /Math.atan()返回数字的反正切值
+    return 360 * Math.atan(_Y / _X) / (2 * Math.PI);
   },
-
+  //删除事件
+  del: function (e) {
+    var nowidx = e.currentTarget.dataset.index; // 获取data-index属性的值
+    var oldDataList = this.data.dataList;
+    oldDataList.splice(nowidx, 1);
+    this.setData({
+      dataList: oldDataList
+    })
+  }
 })
