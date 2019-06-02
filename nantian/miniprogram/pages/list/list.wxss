@@ -116,5 +116,5 @@
   display: flex
 }
 .btn-space{
-width: 85%
+width: 83%
 }
