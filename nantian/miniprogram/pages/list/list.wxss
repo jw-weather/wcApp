@@ -52,6 +52,8 @@
     clear: both;
     overflow: hidden;
     padding: 0px;
+    background: url('http://m.qpic.cn/psb?/V13K8NhN1oaFa5/1Mv*hzmCCv7XOLAi7HUbcXOsYPXKH1Y6UEcJUGNxLhE!/b/dMAAAAAAAAAA&bo=NAIEBAAAAAARBwY!&rf=viewer_4')no-repeat;
+
  
 }
 /*滑动*/

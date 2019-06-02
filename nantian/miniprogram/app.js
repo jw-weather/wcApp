@@ -1,4 +1,33 @@
 //app.js
+var getImageNum = function (str) {
+  var imag = 3;
+  console.log(str)
+
+  if (str.indexOf("转") != -1) {
+    imag = getImageNum(str.split("转")[0])
+
+  }
+  else {
+    if ((str).indexOf("雨") != -1) {
+      imag = 0
+    }
+    else if ((str).indexOf("云") != -1) {
+      imag = 1
+    }
+    else if ((str).indexOf("晴") != -1) {
+      imag = 2
+    }
+  }
+  return imag;
+}
+var getImage=function(num){
+  var imageList = [
+    "http://img1.imgtn.bdimg.com/it/u=1431664057,2740831878&fm=11&gp=0.jpg",//下雨
+    "http://img0.imgtn.bdimg.com/it/u=515056602,896209476&fm=11&gp=0.jpg",//多云
+    'http://m.qpic.cn/psb?/V13K8NhN1oaFa5/1Mv*hzmCCv7XOLAi7HUbcXOsYPXKH1Y6UEcJUGNxLhE!/b/dMAAAAAAAAAA&bo=NAIEBAAAAAARBwY!&rf=viewer_4'
+  ];
+  return imageList[num];
+}
 App({
 
   /**
@@ -13,14 +42,15 @@ App({
     // 加载云端次数
     loadTime: 0,
 
+    imageList :[
+      "http://img1.imgtn.bdimg.com/it/u=1431664057,2740831878&fm=11&gp=0.jpg",//下雨
+      "http://img0.imgtn.bdimg.com/it/u=515056602,896209476&fm=11&gp=0.jpg",//多云
+      'http://m.qpic.cn/psb?/V13K8NhN1oaFa5/1Mv*hzmCCv7XOLAi7HUbcXOsYPXKH1Y6UEcJUGNxLhE!/b/dMAAAAAAAAAA&bo=NAIEBAAAAAARBwY!&rf=viewer_4'
+    ],
     // 天气数据数组,存储城市对象
     dataList: [],
 
-    //天气背景
-    imageList:[
-      "http://img1.imgtn.bdimg.com/it/u=1431664057,2740831878&fm=11&gp=0.jpg",//下雨
-      "http://img0.imgtn.bdimg.com/it/u=515056602,896209476&fm=11&gp=0.jpg"//多云
-    ],
+    
     // 创建城市对象
     // 将HTTP请求返回的数据转换为对象
     createCity: function (res) {
@@ -38,8 +68,10 @@ App({
         wea: res.data[0].wea, //天气
         air: res.data[0].air, // 空气指数
         humidity: res.data[0].humidity, // 湿度
-        win: res.data[0].win[0] // 风
+        win: res.data[0].win[0] ,// 风
       };
+
+      obj.img = getImage(getImageNum(res.data[0].wea));
 
       // 24小时的简略信息（每隔3小时）
       let hours = res.data[0].hours.concat(res.data[1].hours);
