@@ -11,7 +11,6 @@ let formatNumber = n => {
 
 Page({
 
-  
   /**
    * 页面的初始数据
    */
@@ -32,11 +31,21 @@ Page({
    * 通过"setData()"同步全局数据到本地页面中
    */
   sync: function() {
+    console.log("global before snyc");
+    console.log(getApp().globalData.dataList);
+
+    this.setData({
+      dataList: []
+    })
+
     // 拷贝全局数据的引用到本地
     // 引用传递，不是值传递
     this.setData({
       dataList: getApp().globalData.dataList
     })
+
+    console.log("global after snyc");
+    console.log(getApp().globalData.dataList);
   },
 
   /**
@@ -71,6 +80,7 @@ Page({
   },
 
   loadCloudData: function() {
+    console.log("loading cloud ...");
     const db = wx.cloud.database();
     db.collection('user_city').where({
       _openid: getApp().globalData.openId
@@ -141,13 +151,17 @@ Page({
       time: time
     });
 
-    this.loadCloudData();
+    // 只有第一次加载页面时才同步云端
+    if (getApp().globalData.loadTime == 0) {
+      this.loadCloudData();
+      getApp().globalData.loadTime += 1;
+    }
 
     var _this = this;
     setInterval(function () {
       _this.sync();
-      console.log("轮播请求1秒触发一次");
-    }, 3000);    //代表1秒钟发送一次请求
+      console.log("2秒同步一次全局数据和本地数据");
+    }, 2000);
   },
 
   /**
