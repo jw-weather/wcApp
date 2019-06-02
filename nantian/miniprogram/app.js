@@ -10,6 +10,9 @@ App({
 
     userInfo: null,
 
+    // 加载云端次数
+    loadTime: 0,
+
     // 天气数据数组,存储城市对象
     dataList: [],
 
@@ -18,7 +21,6 @@ App({
     // 创建城市对象
     // 将HTTP请求返回的数据转换为对象
     createCity: function (res) {
-      console.log(res);
       var obj = new Object();
 
       obj.cityid = res.cityid;
