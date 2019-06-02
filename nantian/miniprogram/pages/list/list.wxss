@@ -54,7 +54,7 @@
     padding: 0px;
  
 }
-
+/*滑动*/
 .touch-item {
  font-size: 14px;
  display: flex;
@@ -66,9 +66,9 @@
   background: url('http://img1.imgtn.bdimg.com/it/u=1431664057,2740831878&fm=11&gp=0.jpg')no-repeat;
 }
 .content {
+  display: flex;
   width:100%;
   height: 100px;
- display: flex;
  flex-direction: row;
  line-height: 18px;
  -webkit-transition: all 0.4s;
@@ -96,4 +96,25 @@
 .touch-move-active .del {
  -webkit-transform: translateX(0);
  transform: translateX(0);
+}
+/*按钮*/
+.btn {
+      
+      background:gainsboro;
+      size: mini;
+    }
+
+.btn::after {
+      border-radius: 0;
+    }
+
+.btn-container{
+  padding: 5px;
+  width:100%;
+  height: 50px;
+  flex-direction: row;
+  display: flex
+}
+.btn-space{
+width: 85%
 }

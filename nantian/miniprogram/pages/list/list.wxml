@@ -6,13 +6,11 @@
         <text class='space'>\n</text>
         <text class='time'>{{time}}</text>
         <text class='space'>\n</text>
-        <text class='city'>\n{{item.city}}</text>
-         
+        <text class='city'>\n{{item.city}} </text>
      </view>
      <view class='box-right'>
        <text class='space'>\n</text>
         <text class='tem'>\n{{item.today.tem}}</text>
-         
      </view>
    
   </view>
@@ -22,4 +20,8 @@
 
 
 <!--增加按钮-->
-<button bindtap="search"> + </button>
+
+<view class='btn-container'>
+  <view class='btn-space'></view>
+  <button bindtap="search" class='btn'> + </button>
+</view>
