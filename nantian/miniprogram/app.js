@@ -20,7 +20,6 @@ App({
     imageList:[
       "http://img1.imgtn.bdimg.com/it/u=1431664057,2740831878&fm=11&gp=0.jpg",//下雨
       "http://img0.imgtn.bdimg.com/it/u=515056602,896209476&fm=11&gp=0.jpg"//多云
-      
     ],
     // 创建城市对象
     // 将HTTP请求返回的数据转换为对象

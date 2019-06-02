@@ -146,12 +146,6 @@ Page({
       this.loadCloudData();
       getApp().globalData.loadTime += 1;
     }
-
-    var _this = this;
-    setInterval(function () {
-      _this.sync();
-      console.log("2秒同步一次全局数据和本地数据");
-    }, 2000);
   },
 
   /**
@@ -165,7 +159,13 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.sync();
+    var _this = this;
+
+    for(var time = 500; time <= 10000; time += 500) {
+      setTimeout(function () {
+        _this.sync();
+      }, time)
+    }
   },
 
   /**
