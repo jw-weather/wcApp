@@ -1,8 +1,19 @@
 <!--pages/lists/list.wxml-->
-<text>天气列表</text>
-<view class="box">
+<view class="container">
  <view class="touch-item {{item.isTouchMove ? 'touch-move-active' : ''}}" data-index="{{index}}" bindtouchstart="touchstart" bindtouchmove="touchmove" wx:for="{{dataList}}" wx:key="">
-  <view class="content">{{item.city}} {{item.today.tem}} {{item.today.wea}} {{item.today.wea_img}} {{time}}</view>
+  <view class="content" bindtap='details'>
+    <view class='box-left'>
+        <text class='time'>{{time}}</text>
+        <text class='space'>\n</text>
+        <text class='city'>\n{{item.city}}</text>
+     </view>
+     <view class='box-right'>
+         <text class='wea'>{{item.today.wea}}</text> 
+          <text class='space'>\n</text>
+        <text class='tem'>\n{{item.today.tem}}</text>
+     </view>
+   
+  </view>
   <view class="del" catchtap="deleteCity" data-index="{{index}}">删除</view>
  </view>
 </view>
