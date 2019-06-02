@@ -23,5 +23,5 @@
 
 <view class='btn-container'>
   <view class='btn-space'></view>
-  <button bindtap="search" class='btn'> + </button>
+  <button bindtap="search" class='btn' plain='true'> + </button>
 </view>

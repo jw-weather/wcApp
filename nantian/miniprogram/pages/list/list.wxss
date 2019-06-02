@@ -100,7 +100,7 @@
 /*按钮*/
 .btn {
       
-      background:gainsboro;
+      background:white;
       size: mini;
     }
 
