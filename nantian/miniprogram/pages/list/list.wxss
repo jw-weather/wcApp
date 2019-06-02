@@ -100,7 +100,7 @@
 /*按钮*/
 .btn {
       
-      background:gainsboro;
+      background:white;
       size: mini;
     }
 
@@ -116,5 +116,5 @@
   display: flex
 }
 .btn-space{
-width: 85%
+width: 83%
 }
