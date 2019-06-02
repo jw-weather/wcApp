@@ -1,6 +1,6 @@
 <!--pages/lists/list.wxml-->
 <view class="container">
- <view class="touch-item {{item.isTouchMove ? 'touch-move-active' : ''}}" data-index="{{index}}" bindtouchstart="touchstart" bindtouchmove="touchmove" wx:for="{{dataList}}" wx:key="">
+ <view class="touch-item {{item.isTouchMove ? 'touch-move-active' : ''}}" data-index="{{index}}" bindtouchstart="touchstart" bindtouchmove="touchmove" wx:for="{{dataList}}" wx:key=""  style='background:url({{imagList[1]}})  no-repeat center center;background-size:cover;'>
   <view class="content" bindtap='details'>
     <view class='box-left'>
         <text class='space'>\n</text>
