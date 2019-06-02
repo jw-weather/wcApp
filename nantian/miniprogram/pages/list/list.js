@@ -164,7 +164,7 @@ Page({
   onShow: function () {
     var _this = this;
 
-    for(var time = 500; time <= 5000; time += 500) {
+    for(var time = 500; time <= 10000; time += 500) {
       setTimeout(function () {
         _this.sync();
       }, time)
