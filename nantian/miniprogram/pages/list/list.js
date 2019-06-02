@@ -70,18 +70,17 @@ Page({
   },
 
   loadCloudData: function() {
-    console.log("loading cloud ...");
+    console.log("尝试连接云端......");
     const db = wx.cloud.database();
     db.collection('user_city').where({
       _openid: getApp().globalData.openId
     }).get({
       success: function (res) {
-        console.log("haha");
         // res.data 是包含以上定义的两条记录的数组
         var cityList = res.data[0].cities;
 
         for (let city of cityList) {
-          console.log(city);
+          console.log("从云端加载城市：" + city + "成功");
           getApp().globalData.requestWeatherByCityName(city);
         }
       }
@@ -104,18 +103,22 @@ Page({
       success: function (res) {
         console.log(res);
         if (res.data.length == 0) {
-          console.log("不存在数据");
           userCity.add({
             data: {
               cities: cityList
             },
             success: function (res) {
               // res 是一个对象，其中有 _id 字段标记刚创建的记录的 id
-              console.log(res)
+              console.log(res);
+              console.log("云端增加用户收藏城市成功");
+              wx.showToast({
+                title: '成功',
+                icon: 'success',
+                duration: 2000
+              });
             }
           });
         } else {
-          console.log("已存在数据");
           userCity.doc(res.data[0]._id).update({
             data: {
               cities: cityList
@@ -123,6 +126,12 @@ Page({
             success: function (res) {
               // res 是一个对象，其中有 _id 字段标记刚创建的记录的 id
               console.log(res);
+              console.log("云端更新用户收藏城市成功");
+              wx.showToast({
+                title: '成功',
+                icon: 'success',
+                duration: 2000
+              });
             }
           });
         }

@@ -58,6 +58,15 @@ Page({
 
   citySelected: function (e) {
     var cityNameTemp = e.currentTarget.dataset.cityname;
+
+    for (let cityObj of getApp().globalData.dataList) {
+      if (cityObj.city == cityNameTemp) {
+        getApp().globalData.updateWeatherByCityName(cityNameTemp);
+        wx.navigateBack();
+        return;
+      }
+    }
+
     getApp().globalData.requestWeatherByCityName(cityNameTemp);
     wx.navigateBack();
   },
