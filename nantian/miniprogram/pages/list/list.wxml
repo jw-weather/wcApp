@@ -1,14 +1,11 @@
 <!--pages/lists/list.wxml-->
 
+<view class='box' >
+  <view class="container">
 
-<view class="container">
-<<<<<<< HEAD
  <view class="touch-item {{item.isTouchMove ? 'touch-move-active' : ''}}" data-index="{{index}}"  bindtouchstart="touchstart" bindtouchmove="touchmove" wx:for="{{dataList}}" wx:key="" style='background:url({{item.img}})  no-repeat center center;background-size:cover;'>
   <view class="content" bindtap='details'>
-=======
- <view class="touch-item {{item.isTouchMove ? 'touch-move-active' : ''}}" data-index="{{index}}"  bindtouchstart="touchstart" bindtouchmove="touchmove" wx:for="{{dataList}}" wx:key="" wx:num="{{m1.getImage('{{item.today.wea}}')}}" style='background:url({{imageList[0]}})  no-repeat center center;background-size:cover;'>
-  <view class="content" bindtap='details' data-index="{{index}}">
->>>>>>> 17923e2689ec2c7990c4517611717640e8cc7b2c
+
     <view class='box-left'>
         <text class='space'>\n</text>
         <text class='time'>{{time}}</text>
@@ -20,16 +17,16 @@
         <text class='tem'>\n{{item.today.tem}}</text>
      </view>
    
+    </view>
+    <view class="del" catchtap="deleteCity" data-index="{{index}}">删除</view>
+    </view>
   </view>
-  <view class="del" catchtap="deleteCity" data-index="{{index}}">删除</view>
- </view>
-</view>
 
 
 <!--增加按钮-->
 
-<view class='btn-container'>
-  <view class='btn-space'></view>
-  <button bindtap="search" class='btn' plain='true'> + </button>
+  <view class='btn-container'>
+    <view class='btn-space'></view>
+    <button bindtap="search" class='btn' plain='true'> + </button>
+  </view>
 </view>
-

@@ -24,7 +24,7 @@ var getImage=function(num){
   var imageList = [
     "http://img1.imgtn.bdimg.com/it/u=1431664057,2740831878&fm=11&gp=0.jpg",//下雨
     "http://img0.imgtn.bdimg.com/it/u=515056602,896209476&fm=11&gp=0.jpg",//多云
-    'http://m.qpic.cn/psb?/V13K8NhN1oaFa5/1Mv*hzmCCv7XOLAi7HUbcXOsYPXKH1Y6UEcJUGNxLhE!/b/dMAAAAAAAAAA&bo=NAIEBAAAAAARBwY!&rf=viewer_4'
+    'http://m.qpic.cn/psb?/V13K8NhN1oaFa5/1Mv*hzmCCv7XOLAi7HUbcXOsYPXKH1Y6UEcJUGNxLhE!/b/dMAAAAAAAAAA&bo=NAIEBAAAAAARBwY!&rf=viewer_4'//晴天
   ];
   return imageList[num];
 }
@@ -42,11 +42,7 @@ App({
     // 加载云端次数
     loadTime: 0,
 
-    imageList :[
-      "http://img1.imgtn.bdimg.com/it/u=1431664057,2740831878&fm=11&gp=0.jpg",//下雨
-      "http://img0.imgtn.bdimg.com/it/u=515056602,896209476&fm=11&gp=0.jpg",//多云
-      'http://m.qpic.cn/psb?/V13K8NhN1oaFa5/1Mv*hzmCCv7XOLAi7HUbcXOsYPXKH1Y6UEcJUGNxLhE!/b/dMAAAAAAAAAA&bo=NAIEBAAAAAARBwY!&rf=viewer_4'
-    ],
+   
     // 天气数据数组,存储城市对象
     dataList: [],
 

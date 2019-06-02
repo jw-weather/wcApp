@@ -20,7 +20,7 @@ Page({
     
     // 数据库用户-城市表
     userCity: null,
-    imageList: [],
+   
     // 天气数据数组,存储城市对象
     // 改变本地数据会导致全局数据改变
     dataList: [],
@@ -33,7 +33,7 @@ Page({
   sync: function() {// 拷贝全局数据的引用到本地
     // 引用传递，不是值传递
     this.setData({
-      imageList:getApp().globalData.imageList,
+    
       dataList: getApp().globalData.dataList
     })
   },
