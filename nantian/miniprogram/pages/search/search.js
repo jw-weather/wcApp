@@ -11,6 +11,7 @@ Page({
       })
     }
   },
+
   bindAZ: function (e) {
     var currentCityName = e.currentTarget.dataset.id
     var that = this;
@@ -40,9 +41,8 @@ Page({
         }
       })
     }
-
-
   },
+
   onPageScroll: function (e) { // 获取滚动条当前位置
     this.setData({
       scrollNow: e.scrollTop
@@ -58,14 +58,10 @@ Page({
 
   citySelected: function (e) {
     var cityNameTemp = e.currentTarget.dataset.cityname;
-
     getApp().globalData.requestWeatherByCityName(cityNameTemp);
-
-    wx.navigateTo({
-      url: '../list/list'
-    })
-    
+    wx.navigateBack();
   },
+
   cityInput: function (e) {
     wx.pageScrollTo({
       scrollTop: 0,
@@ -105,6 +101,7 @@ Page({
       cityResults: cityResultsTemp
     })
   },
+
   /**
    * 生命周期函数--监听页面显示
    */
@@ -148,7 +145,9 @@ Page({
    */
   onShareAppMessage: function () {
 
-  }, /**
+  },
+  
+  /**
    * 页面的初始数据
    */
   data: {

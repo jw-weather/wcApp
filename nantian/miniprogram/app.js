@@ -38,28 +38,27 @@ App({
         win: res.data[0].win[0] // 风
       };
 
-      /*
-      // 今天每3小时的简略信息
+      // 24小时的简略信息（每隔3小时）
+      let hours = res.data[0].hours.concat(res.data[1].hours);
       obj.hours = [
-        { tem: res.data[0].hours[0].tem, wea: res.data[0].hours[0].wea },
-        { tem: res.data[0].hours[1].tem, wea: res.data[0].hours[1].wea },
-        { tem: res.data[0].hours[2].tem, wea: res.data[0].hours[2].wea },
-        { tem: res.data[0].hours[3].tem, wea: res.data[0].hours[3].wea },
-        { tem: res.data[0].hours[4].tem, wea: res.data[0].hours[4].wea },
-        { tem: res.data[0].hours[5].tem, wea: res.data[0].hours[5].wea },
-        { tem: res.data[0].hours[6].tem, wea: res.data[0].hours[6].wea },
-        { tem: res.data[0].hours[7].tem, wea: res.data[0].hours[7].wea },
+        { time: hours[0].day, tem: hours[0].tem, wea: hours[0].wea },
+        { time: hours[1].day, tem: hours[1].tem, wea: hours[1].wea },
+        { time: hours[2].day, tem: hours[2].tem, wea: hours[2].wea },
+        { time: hours[3].day, tem: hours[3].tem, wea: hours[3].wea },
+        { time: hours[4].day, tem: hours[4].tem, wea: hours[4].wea },
+        { time: hours[5].day, tem: hours[5].tem, wea: hours[5].wea },
+        { time: hours[6].day, tem: hours[6].tem, wea: hours[6].wea },
+        { time: hours[7].day, tem: hours[7].tem, wea: hours[7].wea },
       ]
-      */
 
       // 1-6天后的简略信息
       obj.days = [
-        { tem1: res.data[1].tem1, tem2: res.data[1].tem2 },
-        { tem1: res.data[2].tem1, tem2: res.data[2].tem2 },
-        { tem1: res.data[3].tem1, tem2: res.data[3].tem2 },
-        { tem1: res.data[4].tem1, tem2: res.data[4].tem2 },
-        { tem1: res.data[5].tem1, tem2: res.data[5].tem2 },
-        { tem1: res.data[6].tem1, tem2: res.data[6].tem2 }
+        { wea: res.data[1].wea, tem1: res.data[1].tem1, tem2: res.data[1].tem2 },
+        { wea: res.data[2].wea, tem1: res.data[2].tem1, tem2: res.data[2].tem2 },
+        { wea: res.data[3].wea, tem1: res.data[3].tem1, tem2: res.data[3].tem2 },
+        { wea: res.data[4].wea, tem1: res.data[4].tem1, tem2: res.data[4].tem2 },
+        { wea: res.data[5].wea, tem1: res.data[5].tem1, tem2: res.data[5].tem2 },
+        { wea: res.data[6].wea, tem1: res.data[6].tem1, tem2: res.data[6].tem2 }
       ];
 
       console.log(obj);
