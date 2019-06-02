@@ -30,22 +30,11 @@ Page({
   /**
    * 通过"setData()"同步全局数据到本地页面中
    */
-  sync: function() {
-    console.log("global before snyc");
-    console.log(getApp().globalData.dataList);
-
-    this.setData({
-      dataList: []
-    })
-
-    // 拷贝全局数据的引用到本地
+  sync: function() {// 拷贝全局数据的引用到本地
     // 引用传递，不是值传递
     this.setData({
       dataList: getApp().globalData.dataList
     })
-
-    console.log("global after snyc");
-    console.log(getApp().globalData.dataList);
   },
 
   /**
