@@ -4,7 +4,7 @@
   <view class="container">
 
  <view class="touch-item {{item.isTouchMove ? 'touch-move-active' : ''}}" data-index="{{index}}"  bindtouchstart="touchstart" bindtouchmove="touchmove" wx:for="{{dataList}}" wx:key="" style='background:url({{item.img}})  no-repeat center center;background-size:cover;'>
-  <view class="content" bindtap='details'>
+  <view class="content" bindtap='details'style="opacity:{{1}}">
 
     <view class='box-left'>
         <text class='space'>\n</text>

@@ -58,17 +58,14 @@ page{
     padding: 0px;
   
 }
-.box{
- 
+.box{ 
  overflow:hidden; 
- 
-
 /*下面的是关键的设置100%显示*/ 
 background-size: 100% 100%; 
-
  min-height:100%;
-  background: url('https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2382146134,4093328568&fm=26&gp=0.jpg')repeat;
- 
+  background: rgba(244,219,187, 0.2);
+filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99F4DBBB, endColorstr=#99F4DBBB);
+
 }
 /*滑动*/
 .touch-item {
@@ -79,7 +76,7 @@ background-size: 100% 100%;
  border-bottom:1px solid #ccc;
  width: 100%;
  overflow: hidden;
-
+ opacity: 1;
 }
 .content {
   display: flex;
