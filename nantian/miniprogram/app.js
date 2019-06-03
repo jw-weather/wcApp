@@ -53,6 +53,9 @@ App({
 
     // 加载云端次数
     loadTime: 0,
+
+    // 请求状态
+    request_status: null,
    
     // 天气数据数组,存储城市对象
     dataList: [],
@@ -121,7 +124,11 @@ App({
           _this.dataList.push(
             _this.createCity(res.data)
           );
+          _this.request_status = true;
           console.log("添加" + cityName + "天气成功");
+        },
+        fail: function(res) {
+          _this.request_status = false;
         }
       });
     },
@@ -141,6 +148,10 @@ App({
               console.log("更新" + cityName + "天气成功");
             }
           }
+          _this.request_status = true;
+        },
+        fail: function (res) {
+          _this.request_status = false;
         }
       });
     }

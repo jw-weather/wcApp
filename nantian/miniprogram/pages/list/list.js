@@ -57,6 +57,7 @@ Page({
   loadCloudData: function() {
     console.log("尝试连接云端......");
     const db = wx.cloud.database();
+    console.log(db);
     db.collection('user_city').where({
       _openid: getApp().globalData.openId
     }).get({
@@ -147,13 +148,27 @@ Page({
    */
   onShow: function () {
     var _this = this;
+    let timeout = 3000; // 3秒
+    let interval = 500; // 0.5秒
 
-    // 10秒内每0.5秒同步一次全局数据，以防网络请求延时
-    for(var time = 500; time <= 10000; time += 500) {
+    // timeout秒内每0.5秒同步一次全局数据，以防网络请求延时
+    for (var time = interval; time <= timeout; time += interval) {
       setTimeout(function () {
         _this.sync();
       }, time)
     }
+
+    // timeout秒后仍未请求成功，提示网络异常
+    setTimeout(function() {
+      if (getApp().globalData.request_status == false) {
+        getApp().globalData.request_status = true;
+        wx.showToast({
+          title: '网络连接异常',
+          icon: 'none',
+          duration: 2000
+        })
+      }
+    }, timeout)
   },
 
   /**
