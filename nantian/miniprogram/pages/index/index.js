@@ -67,6 +67,7 @@ Page({
       },
       fail: err => {
         console.error('[云函数] [login] 调用失败', err);
+        app.globalData.request_status = false;
       }
     })
   },
