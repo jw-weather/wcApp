@@ -1,1 +1,73 @@
 /* pages/details/details.wxss */
+
+page{
+  height:100%;
+}
+
+.dcontainer {
+  text-align: center;
+} 
+
+.acontainer {
+  overflow:hidden; 
+  color:rgb(255, 255, 255);
+  background-size: cover; 
+  min-height:100%;
+} 
+
+.cityName{
+font-size: 70rpx;
+}
+
+.weather{
+font-size: 40rpx;
+}
+
+.tem_now{
+font-size: 100rpx;
+}
+
+.today{
+font-size: 50rpx;
+margin:10rpx;
+width: 100%;
+display: flex;
+flex-direction:row;
+justify-content:space-around;
+}
+
+
+.days{
+font-size: 50rpx;
+margin:5rpx;
+width: 100%;
+display: flex;
+flex-direction:row;
+justify-content:space-around;
+}
+
+.period{
+  font-size: 40rpx;
+  display: flex;
+  flex-direction:row;
+  margin:5rpx
+}
+
+.scroll-x {
+  display: flex;
+  flex-direction: row; 
+}
+
+.divLine{
+ background: #E0E3DA;
+ width: 100%;
+ height: 1rpx;
+}
+
+.item{
+  display: flex;
+}
+
+.reference{
+  font-size: 45rpx;
+}
