@@ -35,7 +35,7 @@ var getImage=function(num) {
   var imageList = [
     "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3729922509,1258449977&fm=26&gp=0.jpghttps://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3729922509,1258449977&fm=26&gp=0.jpg",//下雨
     "https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1222675407,128984385&fm=26&gp=0.jpg",//多云
-    'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2561927261,2489044290&fm=26&gp=0.jpg'//晴天
+    'http://m.qpic.cn/psb?/V13K8NhN1oaFa5/XFrs0HbUFhyUUszxkwGq46j9ng7rQ4AJKtGSFqXE0kU!/b/dL4AAAAAAAAA&bo=NAJoBAAAAAADB3g!&rf=viewer_4'//晴天
   ];
   return imageList[num];
 }
