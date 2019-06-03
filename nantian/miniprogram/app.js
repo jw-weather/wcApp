@@ -34,7 +34,7 @@ var getImage = function (num) {
   var imageList = [
     "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1559540019985&di=839f7e3a53a0e9fa2d8d76d5548f045f&imgtype=0&src=http%3A%2F%2Fku.90sjimg.com%2Fback_pic%2F05%2F03%2F00%2F205956038334158.jpg%2521%2Ffwfh%2F804x1071%2Fquality%2F90%2Funsharp%2Ftrue%2Fcompress%2Ftrue%2Fwatermark%2Ftext%2FOTDorr7orqE%3D%2Ffont%2Fsimkai%2Falign%2Fsoutheast%2Fopacity%2F20%2Fsize%2F50",//下雨
     "https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1222675407,128984385&fm=26&gp=0.jpg",//多云
-    'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2561927261,2489044290&fm=26&gp=0.jpg'//晴天
+    'http://m.qpic.cn/psb?/V13K8NhN1oaFa5/XFrs0HbUFhyUUszxkwGq46j9ng7rQ4AJKtGSFqXE0kU!/b/dL4AAAAAAAAA&bo=NAJoBAAAAAADB3g!&rf=viewer_4'//晴天
   ];
   return imageList[num];
 }
