@@ -1,14 +1,4 @@
 // pages/lists/list.js
-let formatTime = date => {
-  let hour = date.getHours()
-  let minute = date.getMinutes()
-  return [hour, minute].map(formatNumber).join(':')
-}
-let formatNumber = n => {
-  n = n.toString()
-  return n[1] ? n : '0' + n
-}
-
 Page({
 
   /**
@@ -17,14 +7,10 @@ Page({
   data: {
     startX: 0, //开始坐标
     startY: 0,
-    
-    // 数据库用户-城市表
-    userCity: null,
    
     // 天气数据数组,存储城市对象
     // 改变本地数据会导致全局数据改变
     dataList: [],
-    
   },
 
   /**
@@ -33,7 +19,6 @@ Page({
   sync: function() {// 拷贝全局数据的引用到本地
     // 引用传递，不是值传递
     this.setData({
-    
       dataList: getApp().globalData.dataList
     })
   },
@@ -143,13 +128,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // 调用函数时，传入new Date()参数，返回值是日期和时间
-    var time = formatTime(new Date());
-    // 再通过setData更改Page()里面的data，动态更新页面的数据
-    this.setData({
-      time: time
-    });
-
     // 只有第一次加载页面时才同步云端
     if (getApp().globalData.loadTime == 0) {
       this.loadCloudData();
@@ -170,6 +148,7 @@ Page({
   onShow: function () {
     var _this = this;
 
+    // 10秒内每0.5秒同步一次全局数据，以防网络请求延时
     for(var time = 500; time <= 10000; time += 500) {
       setTimeout(function () {
         _this.sync();
@@ -212,7 +191,6 @@ Page({
     this.updateCloudData();
   },
 
-  
   touchstart: function (e) {
     //开始触摸时 重置所有删除
     this.data.dataList.forEach(function (v, i) {
@@ -225,6 +203,7 @@ Page({
       dataList: this.data.dataList
     })
   },
+
   //滑动事件处理
   touchmove: function (e) {
     var that = this,
@@ -251,6 +230,7 @@ Page({
       dataList: that.data.dataList
     })
   },
+
   /**
    * 计算滑动角度
    * @param {Object} start 起点坐标
@@ -262,6 +242,7 @@ Page({
     //返回角度 /Math.atan()返回数字的反正切值
     return 360 * Math.atan(_Y / _X) / (2 * Math.PI);
   },
+
   //删除事件
   del: function (e) {
     var nowidx = e.currentTarget.dataset.index; // 获取data-index属性的值

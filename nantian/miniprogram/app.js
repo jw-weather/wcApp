@@ -1,11 +1,21 @@
 //app.js
+var formatTime = date => {
+  let hour = date.getHours()
+  let minute = date.getMinutes()
+  return [hour, minute].map(formatNumber).join(':')
+}
+
+var formatNumber = n => {
+  n = n.toString()
+  return n[1] ? n : '0' + n
+}
+
 var getImageNum = function (str) {
   var imag = 3;
   console.log(str)
 
   if (str.indexOf("转") != -1) {
     imag = getImageNum(str.split("转")[0])
-
   }
   else {
     if ((str).indexOf("雨") != -1) {
@@ -20,7 +30,8 @@ var getImageNum = function (str) {
   }
   return imag;
 }
-var getImage=function(num){
+
+var getImage=function(num) {
   var imageList = [
     "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3729922509,1258449977&fm=26&gp=0.jpghttps://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3729922509,1258449977&fm=26&gp=0.jpg",//下雨
     "https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1222675407,128984385&fm=26&gp=0.jpg",//多云
@@ -28,6 +39,7 @@ var getImage=function(num){
   ];
   return imageList[num];
 }
+
 App({
 
   /**
@@ -41,11 +53,9 @@ App({
 
     // 加载云端次数
     loadTime: 0,
-
    
     // 天气数据数组,存储城市对象
     dataList: [],
-
     
     // 创建城市对象
     // 将HTTP请求返回的数据转换为对象
@@ -54,8 +64,8 @@ App({
 
       obj.cityid = res.cityid;
       obj.city = res.city;
-      obj.update_time = res.update_time;
-      obj.get_time = new Date();
+      obj.update_time = res.update_time; // 该天气数据更新时间
+      obj.request_time = formatTime(new Date()); // 请求该天气数据时间
       
       // 今天的详细信息
       obj.today = {
