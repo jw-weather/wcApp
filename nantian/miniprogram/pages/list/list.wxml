@@ -8,9 +8,9 @@
 
     <view class='box-left'>
         <text class='space'>\n</text>
-        <text class='time'>{{item.request_time}}</text>
+         <text class='city'>\n{{item.city}} </text>
         <text class='space'>\n</text>
-        <text class='city'>\n{{item.city}} </text>
+       <text class='time'>{{item.request_time}}</text>
      </view>
      <view class='box-right'>
        <text class='space'>\n</text>
