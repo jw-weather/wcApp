@@ -63,7 +63,7 @@ page{
 /*下面的是关键的设置100%显示*/ 
 background-size: 100% 100%; 
  min-height:100%;
-  background: rgba(244,219,187, 0.2);
+background: rgba(244,219,187, 0.2);
 filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99F4DBBB, endColorstr=#99F4DBBB);
 
 }
