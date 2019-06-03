@@ -74,9 +74,11 @@ filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99F4DBBB, endCo
  /* //均匀排布每个元素 */
  justify-content: space-between;
  border-bottom:1px solid #ccc;
- width: 100%;
+ width: 95%;
  overflow: hidden;
  opacity: 1;
+ padding:5px;
+ margin-top: 5px;
 }
 .content {
   display: flex;
