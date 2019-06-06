@@ -27,15 +27,19 @@ var getImageNum = function (str) {
     else if ((str).indexOf("晴") != -1) {
       imag = 2
     }
+    else if ((str).indexOf("阴") != -1) {
+      imag = 3
+    }
   }
   return imag;
 }
 
 var getImage=function(num) {
   var imageList = [
-   "https://img03.sogoucdn.com/app/a/100520093/b467ec84f3d6ecb6-822ca4a0d4de0246-c3a082cf84869c6f51c6777dc518587c.jpg",//下雨
-    "https://i03picsos.sogoucdn.com/ea0242ebf80bb58d",//多云
-    'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2561927261,2489044290&fm=26&gp=0.jpg'//晴天
+   "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1559798867982&di=d10894cfe64ba11938ffad6bfa4a2b51&imgtype=0&src=http%3A%2F%2Fimg.mp.itc.cn%2Fupload%2F20160423%2F4f3f715d80454abea44e10b2b21cb68b_th.jpg",//下雨
+    "http://m.qpic.cn/psb?/V13K8NhN1oaFa5/97EfFi0ZGxY4iesC1lNmjgrGlMcznj0.kessdR8sCxE!/b/dL8AAAAAAAAA&bo=oAU4BAAAAAARB6k!&rf=viewer_4",//多云
+    'http://a4.qpic.cn/psb?/V13K8NhN1oaFa5/Bu3AElVElEV8mzPoXZhpbDsDbViDiuCoLX6szcXPixI!/c/dL8AAAAAAAAA&ek=1&kp=1&pt=0&bo=OARZBgAAAAARF0M!&tl=3&vuin=850997783&tm=1559617200&sce=60-2-2&rf=0-0',//晴天
+    'https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3421492695,4245659153&fm=26&gp=0.jpg'//阴天
   ];
   return imageList[num];
 }
