@@ -5,12 +5,12 @@
 
  <view class="touch-item {{item.isTouchMove ? 'touch-move-active' : ''}}" data-index="{{index}}"  bindtouchstart="touchstart" bindtouchmove="touchmove" wx:for="{{dataList}}" wx:key="" style='background:url({{item.img}})  no-repeat center center;background-size:cover;'>
   <view class="content" bindtap='details'style="opacity:{{1}}" data-index="{{index}}">
-
+  
     <view class='box-left'>
         <text class='space'>\n</text>
          <text class='city'>\n{{item.city}} </text>
         <text class='space'>\n</text>
-       <text class='time'>{{item.request_time}}</text>
+       <text class='time' decode="{{true}}">&ensp;&ensp;{{item.request_time}}</text>
      </view>
      <view class='box-right'>
        <text class='space'>\n</text>

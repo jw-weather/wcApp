@@ -39,9 +39,10 @@ page{
   font-weight: 200;
 }
 
+
 .box-left{
-    text-align: center;
-    width: 30%;
+    text-align: left;
+    width: 60%;
     overflow: hidden;
     padding: 0px;
   
@@ -96,6 +97,7 @@ filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99F4DBBB, endCo
  
 }
 .del {
+   border-radius: 16px;
  background-color: #c00;
  width: 90px;
  display: flex;
