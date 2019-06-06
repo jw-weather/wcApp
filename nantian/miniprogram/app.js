@@ -158,6 +158,13 @@ App({
           _this.request_status = false;
         }
       });
+    },
+
+    // 刷新所有城市天气
+    updateAllCities: function() {
+      for(let city of this.dataList) {
+        this.updateWeatherByCityName(city.city);
+      }
     }
   },
 

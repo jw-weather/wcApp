@@ -191,6 +191,10 @@ Page({
   onPullDownRefresh: function () {
     console.log("pull down");
     this.updateCloudData();
+    getApp().globalData.updateAllCities();
+    setTimeout(function () {
+      wx.stopPullDownRefresh();
+    }, 1000)
   },
 
   /**
