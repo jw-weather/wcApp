@@ -34,48 +34,64 @@
 <view class="period">
 <view>
 <view style="text-align:center"><text decode="{{true}}">&nbsp;</text>{{period1}}<text decode="{{true}}">&nbsp;</text></view>
-<view style="text-align:center">{{wea1}}</view>
+<view><text decode="{{true}}">&nbsp;</text></view>
+<view style="text-align:center; white-space: normal;">\n{{wea1}}</view>
+<view><text decode="{{true}}">&nbsp;</text></view>
 <view style="text-align:center">{{tem1}}</view>
 </view>
 <view>
 <view style="text-align:center"><text decode="{{true}}">&nbsp;</text>{{period2}}<text decode="{{true}}">&nbsp;</text></view>
+<view><text decode="{{true}}">&nbsp;</text></view>
 <view style="text-align:center">{{wea2}}</view>
+<view><text decode="{{true}}">&nbsp;</text></view>
 <view style="text-align:center">{{tem2}}</view>
 </view>
 
 <view>
 <view style="text-align:center"><text decode="{{true}}">&nbsp;</text>{{period3}}<text decode="{{true}}">&nbsp;</text></view>
+<view><text decode="{{true}}">&nbsp;</text></view>
 <view style="text-align:center">{{wea3}}</view>
+<view><text decode="{{true}}">&nbsp;</text></view>
 <view style="text-align:center">{{tem3}}</view>
 </view>
 
 <view>
 <view style="text-align:center"><text decode="{{true}}">&nbsp;</text>{{period4}}<text decode="{{true}}">&nbsp;</text></view>
+<view><text decode="{{true}}">&nbsp;</text></view>
 <view style="text-align:center">{{wea4}}</view>
+<view><text decode="{{true}}">&nbsp;</text></view>
 <view style="text-align:center">{{tem4}}</view>
 </view>
 
 <view>
 <view style="text-align:center"><text decode="{{true}}">&nbsp;</text>{{period5}}<text decode="{{true}}">&nbsp;</text></view>
+<view><text decode="{{true}}">&nbsp;</text></view>
 <view style="text-align:center">{{wea5}}</view>
+<view><text decode="{{true}}">&nbsp;</text></view>
 <view style="text-align:center">{{tem5}}</view>
 </view>
 
 <view>
 <view style="text-align:center"><text decode="{{true}}">&nbsp;</text>{{period6}}<text decode="{{true}}">&nbsp;</text></view>
+<view><text decode="{{true}}">&nbsp;</text></view>
 <view style="text-align:center">{{wea6}}</view>
+<view><text decode="{{true}}">&nbsp;</text></view>
 <view style="text-align:center">{{tem6}}</view>
 </view>
 
 <view>
 <view style="text-align:center"><text decode="{{true}}">&nbsp;</text>{{period7}}<text decode="{{true}}">&nbsp;</text></view>
+<view><text decode="{{true}}">&nbsp;</text></view>
 <view style="text-align:center">{{wea7}}</view>
+<view><text decode="{{true}}">&nbsp;</text></view>
 <view style="text-align:center">{{tem7}}</view>
 </view>
 
 <view>
 <view style="text-align:center"><text decode="{{true}}">&nbsp;</text>{{period8}}<text decode="{{true}}">&nbsp;</text></view>
+<view><text decode="{{true}}">&nbsp;</text></view>
 <view style="text-align:center">{{wea8}}</view>
+<view><text decode="{{true}}">&nbsp;</text></view>
 <view style="text-align:center">{{tem8}}</view>
 </view>
 
@@ -90,37 +106,57 @@
 
 <view>
 <view style="text-align:center">{{oneDay}}</view>
+<view><text decode="{{true}}">&nbsp;</text></view>
 <view style="text-align:center">{{twoDay}}</view>
+<view><text decode="{{true}}">&nbsp;</text></view>
 <view style="text-align:center">{{threeDay}}</view>
+<view><text decode="{{true}}">&nbsp;</text></view>
 <view style="text-align:center">{{fourDay}}</view>
+<view><text decode="{{true}}">&nbsp;</text></view>
 <view style="text-align:center">{{fiveDay}}</view>
+<view><text decode="{{true}}">&nbsp;</text></view>
 <view style="text-align:center">{{sixDay}}</view>
 </view>
 
 <view>
 <view style="text-align:center">{{oneDay_wea}}</view>
+<view><text decode="{{true}}">&nbsp;</text></view>
 <view style="text-align:center">{{twoDay_wea}}</view>
+<view><text decode="{{true}}">&nbsp;</text></view>
 <view style="text-align:center">{{threeDay_wea}}</view>
+<view><text decode="{{true}}">&nbsp;</text></view>
 <view style="text-align:center">{{fourDay_wea}}</view>
+<view><text decode="{{true}}">&nbsp;</text></view>
 <view style="text-align:center">{{fiveDay_wea}}</view>
+<view><text decode="{{true}}">&nbsp;</text></view>
 <view style="text-align:center">{{sixDay_wea}}</view>
 </view>
 
 <view>
 <view style="text-align:center">{{oneDay_tem1}}</view>
+<view><text decode="{{true}}">&nbsp;</text></view>
 <view style="text-align:center">{{twoDay_tem1}}</view>
+<view><text decode="{{true}}">&nbsp;</text></view>
 <view style="text-align:center">{{threeDay_tem1}}</view>
+<view><text decode="{{true}}">&nbsp;</text></view>
 <view style="text-align:center">{{fourDay_tem1}}</view>
+<view><text decode="{{true}}">&nbsp;</text></view>
 <view style="text-align:center">{{fiveDay_tem1}}</view>
+<view><text decode="{{true}}">&nbsp;</text></view>
 <view style="text-align:center">{{sixDay_tem1}}</view>
 </view>
 
 <view>
 <view style="text-align:center">{{oneDay_tem2}}</view>
+<view><text decode="{{true}}">&nbsp;</text></view>
 <view style="text-align:center">{{twoDay_tem2}}</view>
+<view><text decode="{{true}}">&nbsp;</text></view>
 <view style="text-align:center">{{threeDay_tem2}}</view>
+<view><text decode="{{true}}">&nbsp;</text></view>
 <view style="text-align:center">{{fourDay_tem2}}</view>
+<view><text decode="{{true}}">&nbsp;</text></view>
 <view style="text-align:center">{{fiveDay_tem2}}</view>
+<view><text decode="{{true}}">&nbsp;</text></view>
 <view style="text-align:center">{{sixDay_tem2}}</view>
 </view>
 

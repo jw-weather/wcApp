@@ -5,6 +5,7 @@ page{
 }
 
 .dcontainer {
+  min-height: 80%;
   text-align: center;
 } 
 
@@ -13,6 +14,7 @@ page{
   color:white;
   background-size: cover; 
   min-height:100%;
+
 } 
 
 .cityName{
@@ -20,6 +22,7 @@ font-size: 70rpx;
 }
 
 .weather{
+font-weight: 400;
 font-size: 40rpx;
 }
 
@@ -28,7 +31,9 @@ font-size: 100rpx;
 }
 
 .today{
-font-size: 50rpx;
+
+font-size:40rpx;
+font-weight: 400;
 margin:10rpx;
 width: 100%;
 display: flex;
@@ -38,19 +43,24 @@ justify-content:space-around;
 
 
 .days{
-font-size: 50rpx;
+font-size: 40rpx;
+font-weight: 400;
 margin:5rpx;
 width: 100%;
 display: flex;
 flex-direction:row;
 justify-content:space-around;
+min-height: 80%;
 }
 
 .period{
-  font-size: 40rpx;
+  min-height: 110px;
+  font-size: 30rpx;
+  font-weight: 400;
   display: flex;
   flex-direction:row;
-  margin:5rpx
+  flex: 1 0 auto;
+  margin:10rpx;
 }
 
 .scroll-x {
@@ -69,5 +79,5 @@ justify-content:space-around;
 }
 
 .reference{
-  font-size: 45rpx;
+  font-size: 35rpx;
 }
