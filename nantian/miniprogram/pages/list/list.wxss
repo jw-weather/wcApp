@@ -7,7 +7,7 @@ page{
    text-align-last: left;
   display: inline-block;
   font-size: 70rpx;
-  color: white;
+  color: rgb(66, 66, 66);
   font-weight: 300;
 }
 .time{
@@ -15,8 +15,8 @@ page{
    text-align-last: left;
  display: inline-block;
   font-size:30rpx;
-  color: white;
-  font-weight: 300;
+  color: rgb(66, 66, 66);
+  font-weight: 400;
 }
 .space{
   padding: 20px;
@@ -27,7 +27,7 @@ page{
    text-align-last: right;
    display: inline-block;
   font-size: 100rpx;
-  color: white;
+  color: rgb(66, 66, 66);
   font-weight: 300;
 }
 .wea{
@@ -35,13 +35,13 @@ page{
    text-align-last: right;
    display: inline-block;
   font-size:30rpx;
-  color: white;
+  color: rgb(66, 66, 66);
   font-weight: 200;
 }
 
 .box-left{
-    text-align: left;
-    flex: 1;
+    text-align: center;
+    width: 30%;
     overflow: hidden;
     padding: 0px;
   
@@ -69,6 +69,7 @@ filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99F4DBBB, endCo
 }
 /*滑动*/
 .touch-item {
+   border-radius: 16px;
  font-size: 14px;
  display: flex;
  /* //均匀排布每个元素 */
