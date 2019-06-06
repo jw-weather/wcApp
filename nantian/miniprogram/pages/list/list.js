@@ -114,7 +114,7 @@ Page({
               console.log(res);
               console.log("云端更新用户收藏城市成功");
               wx.showToast({
-                title: '成功',
+                title: '收藏城市成功',
                 icon: 'success',
                 duration: 2000
               });
@@ -189,7 +189,8 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    console.log("pull down");
+    this.updateCloudData();
   },
 
   /**
@@ -203,7 +204,7 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-    this.updateCloudData();
+
   },
 
   touchstart: function (e) {
