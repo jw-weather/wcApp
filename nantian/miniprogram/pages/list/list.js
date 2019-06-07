@@ -194,7 +194,18 @@ Page({
     getApp().globalData.updateAllCities();
     setTimeout(function () {
       wx.stopPullDownRefresh();
-    }, 1000)
+    }, 1000);
+
+    setTimeout(function () {
+      if (getApp().globalData.request_status == false) {
+        getApp().globalData.request_status = true;
+        wx.showToast({
+          title: '网络连接异常',
+          icon: 'none',
+          duration: 2000
+        })
+      }
+    }, 2000);
   },
 
   /**
